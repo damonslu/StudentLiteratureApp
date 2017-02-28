@@ -1,0 +1,87 @@
+CREATE DATABASE  IF NOT EXISTS `dtb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `dtb`;
+-- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+--
+-- Host: localhost    Database: dtb
+-- ------------------------------------------------------
+-- Server version	5.6.14
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `books`
+--
+
+DROP TABLE IF EXISTS `books`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `books` (
+  `title` varchar(100) NOT NULL,
+  `author` varchar(100) DEFAULT NULL,
+  `bookCondition` varchar(20) DEFAULT NULL,
+  `ISBN` varchar(20) DEFAULT NULL,
+  `price` int(20) DEFAULT NULL,
+  `bookID` varchar(20) NOT NULL,
+  `sellerID` varchar(20) DEFAULT NULL,
+  `image` blob,
+  PRIMARY KEY (`bookID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `books`
+--
+
+LOCK TABLES `books` WRITE;
+/*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT INTO `books` VALUES ('The Resonant Interface','Steven Heim','Fair','45321089465',150,'AKP0573','mally',NULL),(' Managing the Software Process','Watts S. Humphrey ','Good','32158465198',699,'CEI2218','micky',NULL),('Head First JAva, 2/E','Kathy Sierra','Good','7651519152',700,'ENM0236','mally',NULL),(' Fundamentals of Database Systems (6th Edition)','Ramez Elmasri, Shamkant Navathe','Fair','565431891652',468,'EWW7756','micky',NULL),(' Software Requirements 3','Karl E Wiegers, Joy Beatty','Good','149865213203',370,'FDB7242','m',NULL),('Introduction to C++','Y. Daniel Liang','Poor','898523213863',65,'FVR9096','mally',NULL),('Software Engineering 9/E','Ian Sommerville','Good','1561315868165',200,'GPP4966','m',NULL),('Introduction to Java Programming','Y. Daniel Liang','Good','123654789',300,'HZP9413','mally',NULL),('Java, A Beginner\'s Guide 5/E','Herbert Schildt','Fair','1546232897',460,'IJR3840','mally',NULL),(' Coding: On Software Design Process','Jonathan Locke, Nathania tenWolde','Poor','98743206655',100,'JHO3544','m',NULL),(' The Process of Software Architecting',' Peter Eeles, Peter Cripps','Fair','156744592186',100,'JIG6331','m',NULL),('The Big Bang Theory','Sheldon Cooper','Good','78956123654',800,'JQN1153','mally',NULL),('m','jack','Poor','456186',34,'JSP3167','mally',NULL),(' Software Engineering (7th Edition)','Ian Sommerville','Poor','15185203265',50,'NPV9011','m',NULL),('Software Engineering 9/E','Ian Sommerville','Poor','78953120565',50,'OGZ7906','mally',NULL),('Database Systems 3/E','Jeffrey D. Ullman, Jennifer Widom','Fair','789162198231',330,'PUM2336','micky',NULL),('Per','Olav','Poor','23123',200,'UH2',NULL,NULL),(' Database Concepts (6th Edition)','David M. Kroenke,  David Auer','Poor','156589532615',88,'VDJ9206','micky',NULL),('Java','rea','Poor','eawr',600,'VEO2464','zub',NULL),('Form+Code in Design, Art, and Architecture','Casey Reas','Fair','78951432183',173,'VMN7023','mally',NULL);
+/*!40000 ALTER TABLE `books` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sellers`
+--
+
+DROP TABLE IF EXISTS `sellers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sellers` (
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `sellerID` varchar(20) NOT NULL,
+  `admin` int(10) DEFAULT '0',
+  PRIMARY KEY (`sellerID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sellers`
+--
+
+LOCK TABLES `sellers` WRITE;
+/*!40000 ALTER TABLE `sellers` DISABLE KEYS */;
+INSERT INTO `sellers` VALUES ('k','k','k','k','k',0),('moyez','moy_1@yahoo.com','1','076','m',1),('Malcolm Kente','malcolm.nyembera1@gmail.com','bitch1','0704184180','mally',1),('Micheal Corleon','doncorleon@mafioso.com','don','3014567895','micky',0),('zub','zub@gmail.com','1','089','zub',0);
+/*!40000 ALTER TABLE `sellers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-01-16 13:45:01
